@@ -89,7 +89,7 @@ class TrancheCalcApp(ctk.CTk):
         self.grid_rowconfigure(0, weight=1)
         self.resizable(False, False)
         self.tranche_result = 0
-        self.message = 'Сумма возврата на {0}: {1} руб'
+        self.message = 'Сумма процентов на {0}: {1} руб'
 
         self.switch_var = ctk.StringVar(value='off')
         self.switch = ctk.CTkSwitch(self, text='2 периода', command=self.switch_periods, font=FONT,
@@ -123,6 +123,7 @@ class TrancheCalcApp(ctk.CTk):
             return
 
         self.res_message.configure(text=self.message, font=FONT)
+        self.message = 'Сумма процентов на {0}: {1} руб'
         self.p1_entry.clear()
         self.switch.focus()
 
