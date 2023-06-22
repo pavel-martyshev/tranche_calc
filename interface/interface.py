@@ -22,22 +22,21 @@ class EntryFrame(ctk.CTkFrame):
         super().__init__(master)
         self.grid_columnconfigure(0, weight=1)
         self.configure(fg_color=FRAME_FG)
-        self.dates_str = ''
 
         self.period = ctk.CTkLabel(self, text=f'Период {per_num}', font=FONT)
         self.period.grid(row=0, column=0, padx=0, pady=(0, 0))
 
         self.tr_sum = ctk.CTkEntry(self, placeholder_text='Сумма транша', **ENTRY_CONFIGURE)
-        self.tr_sum.grid(row=1, column=0, padx=10, pady=(0, 0), sticky='w')
+        self.tr_sum.grid(row=1, column=0, padx=10, pady=(0, 0))
 
         self.bdate = ctk.CTkEntry(self, placeholder_text='Дата поступления', **ENTRY_CONFIGURE)
-        self.bdate.grid(row=2, column=0, padx=10, pady=(10, 0), sticky='w')
+        self.bdate.grid(row=2, column=0, padx=10, pady=(10, 0))
 
         self.edate = ctk.CTkEntry(self, placeholder_text='Дата возврата', **ENTRY_CONFIGURE)
-        self.edate.grid(row=3, column=0, padx=10, pady=(10, 0), sticky='w')
+        self.edate.grid(row=3, column=0, padx=10, pady=(10, 0))
 
         self.rate = ctk.CTkEntry(self, placeholder_text='Процентная ставка', **ENTRY_CONFIGURE)
-        self.rate.grid(row=4, column=0, padx=10, pady=(10, 10), sticky='w')
+        self.rate.grid(row=4, column=0, padx=10, pady=(10, 10))
 
     def get(self):
         try:
@@ -117,7 +116,7 @@ class TrancheCalcApp(ctk.CTk):
                 self.message = self.message.format(date, round(self.tranche_result, 2))
             else:
                 date = self.p2_entry.get()[2]
-                self.tranche_result = Tranche(*self.p2_entry.get()).main()
+                self.tranche_result += Tranche(*self.p2_entry.get()).main()
                 self.message = self.message.format(date, round(self.tranche_result, 2))
                 self.p2_entry.clear()
         except TypeError:
