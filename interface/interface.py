@@ -13,7 +13,7 @@ PH_TEXT = '#7e7e8f'
 PH_TEXT_ERR = '#f24d41'
 ENTRY_CONFIGURE = {'placeholder_text_color': PH_TEXT, 'font': FONT, 'width': 150}
 ENTRY_CONFIGURE_ERR = {'placeholder_text_color': PH_TEXT_ERR}
-ICON_PATH = os.path.abspath(os.path.join('icon.ico'))
+ICON_PATH = os.path.abspath(os.path.join('logo.ico'))
 ctk.set_appearance_mode('dark')
 
 
