@@ -1,4 +1,3 @@
-import os
 import re
 
 import customtkinter as ctk
@@ -13,7 +12,6 @@ PH_TEXT = '#7e7e8f'
 PH_TEXT_ERR = '#f24d41'
 ENTRY_CONFIGURE = {'placeholder_text_color': PH_TEXT, 'font': FONT, 'width': 150}
 ENTRY_CONFIGURE_ERR = {'placeholder_text_color': PH_TEXT_ERR}
-ICON_PATH = os.path.abspath(os.path.join('logo.ico'))
 ctk.set_appearance_mode('dark')
 
 
@@ -40,7 +38,8 @@ class EntryFrame(ctk.CTkFrame):
 
     def get(self):
         try:
-            return int(self.tr_sum.get()), self.bdate.get(), self.edate.get(), int(self.rate.get())
+            return int(self.tr_sum.get()), self.bdate.get(), self.edate.get(), \
+                float(self.rate.get())
         except ValueError:
             self.check_formats()
             return False
@@ -71,7 +70,8 @@ class EntryFrame(ctk.CTkFrame):
             self.edate.delete(0, 'end')
             self.edate.configure(placeholder_text='Некорректный формат', **ENTRY_CONFIGURE_ERR)
 
-        if not self.rate.get().isdigit():
+        if not ''.join(self.rate.get().split('.')).isdigit() and \
+           not ''.join(self.rate.get().split(',')).isdigit():
             self.rate.delete(0, 'end')
             self.rate.configure(placeholder_text='Некорректные данные', **ENTRY_CONFIGURE_ERR)
 
@@ -84,7 +84,6 @@ class TrancheCalcApp(ctk.CTk):
 
         self.title('Tranche')
         self.geometry('365x300')
-        self.iconbitmap(ICON_PATH)
         self.grid_columnconfigure(0, weight=1)
         self.grid_rowconfigure(0, weight=1)
         self.resizable(False, False)

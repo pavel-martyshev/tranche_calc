@@ -2,7 +2,7 @@ from datetime import datetime
 
 
 class Tranche:
-    def __init__(self, tr_sum: int, bdate: str, edate: str, rate: int):
+    def __init__(self, tr_sum: int, bdate: str, edate: str, rate: float):
         self.tr_sum = tr_sum
         self.bdate = datetime(*[int(elem) for elem in bdate.strip().split('.')[::-1]])
         self.edate = datetime(*[int(elem) for elem in edate.strip().split('.')[::-1]])
@@ -25,7 +25,7 @@ def main():
     t_sum = int(input('Введите сумму транша: '))
     date1 = input('Введите дату выдачи: ')
     date2 = input('Введите дату возврата: ')
-    t_rate = int(input('Введите процентную ставку: '))
+    t_rate = float(input('Введите процентную ставку: '))
 
     print(Tranche(t_sum, date1, date2, t_rate))
 
