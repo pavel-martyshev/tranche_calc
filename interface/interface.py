@@ -38,8 +38,7 @@ class EntryFrame(ctk.CTkFrame):
 
     def get(self):
         try:
-            return int(self.tr_sum.get()), self.bdate.get(), self.edate.get(), \
-                float(self.rate.get())
+            return int(self.tr_sum.get()), self.bdate.get(), self.edate.get(), self.rate.get()
         except ValueError:
             self.check_formats()
             return False
