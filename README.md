@@ -25,7 +25,7 @@ pip show customtkinter
 Копируем "Location" и вставляем в следующую команду:
 
 ```
-pyinstaller --noconfirm --onedir --windowed --icon=logo.ico --add-data "<CustomTkinter Location>\customtkinter;customtkinter\" main.py
+pyinstaller --noconfirm --onedir --windowed --icon=logo.ico --add-data "<CustomTkinter Location>/customtkinter;customtkinter/" main.py
 ```
 
 После чего копируем logo.ico в папку /dist/main и запускаем main.exe
