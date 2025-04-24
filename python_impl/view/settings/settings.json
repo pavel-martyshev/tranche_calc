@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "app_settings": {
+      "font": ["Tahoma", "13"],
+      "geometry": "365x335"
+    },
+    "frame_settings": {
+      "fg_color": "#242424",
+      "entry_fields": {
+        "placeholder_text_color": "#7e7e8f",
+        "placeholder_error_text_color": "#f24d41",
+        "font": ["Tahoma", "13"],
+        "width": 150
+      }
+    }
+  }
+}
